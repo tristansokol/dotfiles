@@ -1,0 +1,41 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "21019c2c-45a3-407b-b702-0184cc8fdc1c"
+  core:
+    packagesWithKeymapsDisabled: [
+      "atom-beautify"
+    ]
+    telemetryConsent: "limited"
+  editor:
+    fontFamily: "FiraCode-Light"
+    softWrap: true
+  "exception-reporting":
+    userId: "826bb6b7-475c-4cfe-8c6c-fedcb1d5e5cb"
+  "git-diff":
+    showIconsInEditorGutter: true
+  "linter-jshint":
+    lintInlineJavaScript: true
+  "linter-ui-default":
+    showPanel: true
+  minimap:
+    plugins:
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      pigments: true
+      pigmentsDecorationsZIndex: 0
+  "spell-check":
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+      "text.html.basic"
+    ]
+  welcome:
+    showOnStartup: false

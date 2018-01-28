@@ -1,0 +1,71 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/cg/wgjkn83141zc6lnt2q59rpz00003v9/T/d-1171022-70771-1skjcag.94uzwljtt9/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/cg/wgjkn83141zc6lnt2q59rpz00003v9/T/d-1171022-70771-1skjcag.94uzwljtt9/package.tgz",
+        "spec": "/private/var/folders/cg/wgjkn83141zc6lnt2q59rpz00003v9/T/d-1171022-70771-1skjcag.94uzwljtt9/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/cg/wgjkn83141zc6lnt2q59rpz00003v9/T/apm-install-dir-1171022-70771-a9b2yh.3rhq1wnrk9"
+    ]
+  ],
+  "_from": "../d-1171022-70771-1skjcag.94uzwljtt9/package.tgz",
+  "_id": "atom-live-server@2.2.0",
+  "_inCache": true,
+  "_location": "/atom-live-server",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/cg/wgjkn83141zc6lnt2q59rpz00003v9/T/d-1171022-70771-1skjcag.94uzwljtt9/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/cg/wgjkn83141zc6lnt2q59rpz00003v9/T/d-1171022-70771-1skjcag.94uzwljtt9/package.tgz",
+    "spec": "/private/var/folders/cg/wgjkn83141zc6lnt2q59rpz00003v9/T/d-1171022-70771-1skjcag.94uzwljtt9/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1171022-70771-1skjcag.94uzwljtt9/package.tgz",
+  "_shasum": "f8b53c215b9a60d79ede94add15ad11589a1338f",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/cg/wgjkn83141zc6lnt2q59rpz00003v9/T/d-1171022-70771-1skjcag.94uzwljtt9/package.tgz",
+  "_where": "/private/var/folders/cg/wgjkn83141zc6lnt2q59rpz00003v9/T/apm-install-dir-1171022-70771-a9b2yh.3rhq1wnrk9",
+  "activationEvents": [
+    "atom-live-server:activate"
+  ],
+  "bugs": {
+    "url": "https://github.com/jas-chen/atom-live-server/issues"
+  },
+  "dependencies": {
+    "json5": "^0.5.1",
+    "live-server": "^1.2.0"
+  },
+  "description": "Launch a http server with live reload capability.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/jas-chen/atom-live-server#readme",
+  "keywords": [
+    "static",
+    "server",
+    "live reload",
+    "livereload"
+  ],
+  "license": "MIT",
+  "main": "./lib/atom-live-server",
+  "name": "atom-live-server",
+  "optionalDependencies": {},
+  "readme": "# atom-live-server package\n\nLaunch a simple development http server with live reload capability.\n\n![Demo](https://raw.githubusercontent.com/jas-chen/atom-live-server/master/doc/demo.gif)\n\nThis package is based on awesome [Live Server](https://github.com/tapio/live-server) project.\n\n## Usage\n\n`ctrl-alt-l` launch live server on port 3000.\n\n`ctrl-alt-q` stop live server.\n\n`ctrl-alt-3` launch live server on port 3000.\n\n`ctrl-alt-4` launch live server on port 4000.\n\n`ctrl-alt-5` launch live server on port 5000.\n\n`ctrl-alt-8` launch live server on port 8000.\n\n`ctrl-alt-9` launch live server on port 9000.\n\n\n## Options\n\nIf a file `.atom-live-server.json` exists in project root it will be loaded and used as options.\n\nThe keys of `.atom-live-server.json` should match **Command line parameters** in [live-server](https://github.com/tapio/live-server).\n\n#### Example: Launch specific browser\n```json\n{\n  \"browser\": \"safari\"\n}\n```\n\n#### Example: Start server without browser opened\n```json\n{\n  \"no-browser\": true\n}\n```\n\n#### Example: Serve this file for every 404 (useful for single-page applications)\n```json\n{\n  \"entry-file\": \"index.html\"\n}\n```\n\n#### Example: Serve this directory as root path\n```json\n{\n  \"root\": \"public\"\n}\n```\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jas-chen/atom-live-server.git"
+  },
+  "version": "2.2.0"
+}
