@@ -1,0 +1,10 @@
+# Add extra functionality where if you type any text while paging
+# with up/down keys the subset of  the history starting with that
+# text is searched.
+$if Bash
+  "\e[B": history-search-forward
+  "\e[A": history-search-backward
+$endif
+
+set completion-ignore-case on
+set bell-style none
