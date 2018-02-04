@@ -1,5 +1,5 @@
 if [ -f $HOME/.bashrc ]; then
-        source $HOME/.bashrc
+  source $HOME/.bashrc
 fi
 
 # determine if my phone has been backed up recently
@@ -11,5 +11,13 @@ lastbackup=$(find ~/Library/Application\ Support/MobileSync/Backup/* -mtime -10 
 if [[ -z "$lastbackup" ]]; then
   echo "You should back up your iphone!"
 fi
+
+# Add bash completion files.
+if [[ -d $HOME/.bash_completion.d ]]; then
+  for i in $(LC_ALL=C command ls "$HOME/.bash_completion.d"); do
+    source "$HOME/.bash_completion.d/$i"
+  done
+fi
+unset i
 
 # TODO Add a babushka dep to copy the bash profile and bash rc to a certain spot in my dotfiles repo and then replace them with a different .bashrc and profile that source the bash profile and bashrc in this repo.
