@@ -1,6 +1,23 @@
+# source the bashrc file
 if [ -f $HOME/.bashrc ]; then
   source $HOME/.bashrc
 fi
+
+#set the language
+export LC_CTYPE="en_US.UTF-8"
+
+# Reset umask to default
+umask 022
+
+# Add a local bin folder to the path
+if [[ -d "~/bin" ]]; then
+  export PATH="~/bin:$PATH"
+fi
+# add this thing to the path if it exists
+if [[ -d "/usr/local/sbin" ]]; then
+  export PATH="$PATH:/usr/local/sbin"
+fi
+
 
 # determine if my phone has been backed up recently
 # I had to post about this on Stack Overflow
@@ -19,5 +36,19 @@ if [[ -d $HOME/.bash_completion.d ]]; then
   done
 fi
 unset i
+
+if [ $BASH_VERSINFO -ge 4 ]; then
+  if [[ -n $(which brew) && -f $(brew --prefix)/share/bash-completion/bash_completion ]]; then
+    . $(brew --prefix)/share/bash-completion/bash_completion
+  fi
+elif [ $BASH_VERSINFO -eq 3 ]; then
+  if [[ -n $(which brew) && -f $(brew --prefix)/etc/bash_completion ]]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+fi
+
+
+# [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
+export GIT_PS1_SHOWDIRTYSTATE=true
 
 # TODO Add a babushka dep to copy the bash profile and bash rc to a certain spot in my dotfiles repo and then replace them with a different .bashrc and profile that source the bash profile and bashrc in this repo.
