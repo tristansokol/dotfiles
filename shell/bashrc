@@ -41,14 +41,13 @@ export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 
 # add some more history logging: https://spin.atomicobject.com/2016/05/28/log-bash-history/
-export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/dotfiles/bash-history-$(date "+%Y-%m-%d").log; fi'
+# export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/dotfiles/bash-history-$(date "+%Y-%m-%d").log; fi'
 
 
 ##############################
 
 # After each command, update LINES and COLUMNS to reflect the current window size
 shopt -s checkwinsize
-
 export PS1="\[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_NC}\]\[${COLOR_LIGHT_CYAN}\]\$(__git_ps1 \" %s\")\[${COLOR_NC}\] "
 export PS2='> '
 export PS3='#? '

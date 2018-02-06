@@ -48,7 +48,7 @@ elif [ $BASH_VERSINFO -eq 3 ]; then
 fi
 
 
-# [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
+[[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 export GIT_PS1_SHOWDIRTYSTATE=true
 
 # TODO Add a babushka dep to copy the bash profile and bash rc to a certain spot in my dotfiles repo and then replace them with a different .bashrc and profile that source the bash profile and bashrc in this repo.
