@@ -52,3 +52,49 @@ export PS1="\[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_NC}\]\[${COLOR_LIGHT_CYAN}\]\$(__
 export PS2='> '
 export PS3='#? '
 export PS4='+ '
+
+
+function git_prompt_info {
+  local ref=$(git symbolic-ref HEAD 2> /dev/null)
+  # local gitst="$(git status 2> /dev/null)"
+  # local remote_pattern="# Your branch is (.*) (of|by)"
+  # local diverge_pattern="# Your branch and (.*) have diverged"
+  #
+  # if [[ ! ${gitst} =~ "working directory clean" ]]; then
+  #   state="${PR_RED}⚡"
+  # fi
+  #
+  # if [[ ${gitst} =~ ${remote_pattern} ]]; then
+  #   if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
+  #     remote="${PR_YELLOW}↑"
+  #   else
+  #     remote="${PR_YELLOW}↓"
+  #   fi
+  # fi
+  #
+  # if [[ ${gitst} =~ ${diverge_pattern} ]]; then
+  #   remote="${PR_YELLOW}↕"
+  # fi
+
+  if [[ -n $ref ]]; then
+    echo "${PR_CYAN}(${ref#refs/heads/}$remote$state${PR_CYAN})${PR_WHITE}"
+  fi
+}
+
+# function smilie {
+#   if [ "$?" = "0" ];  then
+#     echo -e "%{$fg_bold[cyan]%}:)%{$reset_color%}";
+#   else
+#     echo -e "%{$fg_bold[red]%}:(%{$reset_color%}";
+#   fi
+# }
+
+# PROMPT='${PR_BOLD_BLUE}%${PR_PWDLEN}<...<%~%<< $(git_prompt_info)${PR_BOLD_BLUE}$%{${reset_color}%} '
+# PROMPT='${SSH_CONNECTION+"%{$fg_bold[cyan]%}%n@%m:"}%{$fg_bold[green]%}%~%{$reset_color%}$(git_prompt_info)${reset_color}:%? '
+
+export PS1='${SSH_CONNECTION+"%{$fg_bold[cyan]%}%n@%m:"}%{$fg_bold[green]%}%~%{$reset_color%}$(git_prompt_info):%? '
+
+# RPROMPT='%F{green}%~%f'
+
+# expand functions in the prompt
+setopt prompt_subst
