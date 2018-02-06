@@ -3,6 +3,11 @@ if [ -f $HOME/.bashrc ]; then
   source $HOME/.bashrc
 fi
 
+# source aliases
+# [[ -f "$HOME/dotfiles/shell/aliases" ]] && source "$HOME/dotfiles/shell/aliases"
+source "$HOME/dotfiles/shell/aliases"
+
+
 #set the language
 export LC_CTYPE="en_US.UTF-8"
 
@@ -47,6 +52,9 @@ elif [ $BASH_VERSINFO -eq 3 ]; then
   fi
 fi
 
+# TODO explore putting this as a prompt command to take advantage of the color hints setting
+
+export GIT_PS1_SHOWUNTRACKEDFILE=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWCOLORHINTS=true
