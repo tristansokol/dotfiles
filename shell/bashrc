@@ -41,60 +41,45 @@ export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 
 # add some more history logging: https://spin.atomicobject.com/2016/05/28/log-bash-history/
-# export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/dotfiles/bash-history-$(date "+%Y-%m-%d").log; fi'
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/dotfiles/bash-history-$(date "+%Y-%m-%d").log; fi'
 
 
 ##############################
 
 # After each command, update LINES and COLUMNS to reflect the current window size
 shopt -s checkwinsize
-export PS1="\[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_NC}\]\[${COLOR_LIGHT_CYAN}\]\$(__git_ps1 \" %s\")\[${COLOR_NC}\] "
-export PS2='> '
-export PS3='#? '
-export PS4='+ '
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-function git_prompt_info {
-  local ref=$(git symbolic-ref HEAD 2> /dev/null)
-  # local gitst="$(git status 2> /dev/null)"
-  # local remote_pattern="# Your branch is (.*) (of|by)"
-  # local diverge_pattern="# Your branch and (.*) have diverged"
-  #
-  # if [[ ! ${gitst} =~ "working directory clean" ]]; then
-  #   state="${PR_RED}⚡"
-  # fi
-  #
-  # if [[ ${gitst} =~ ${remote_pattern} ]]; then
-  #   if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-  #     remote="${PR_YELLOW}↑"
-  #   else
-  #     remote="${PR_YELLOW}↓"
-  #   fi
-  # fi
-  #
-  # if [[ ${gitst} =~ ${diverge_pattern} ]]; then
-  #   remote="${PR_YELLOW}↕"
-  # fi
-
-  if [[ -n $ref ]]; then
-    echo "${PR_CYAN}(${ref#refs/heads/}$remote$state${PR_CYAN})${PR_WHITE}"
-  fi
-}
-
-# function smilie {
-#   if [ "$?" = "0" ];  then
-#     echo -e "%{$fg_bold[cyan]%}:)%{$reset_color%}";
-#   else
-#     echo -e "%{$fg_bold[red]%}:(%{$reset_color%}";
+# function git_prompt_info {
+#   local ref=$(git symbolic-ref HEAD 2> /dev/null)
+#   local gitst="$(git status 2> /dev/null)"
+#   local remote_pattern="# Your branch is (.*) (of|by)"
+#   local diverge_pattern="# Your branch and (.*) have diverged"
+#
+#   if [[ ! ${gitst} =~ "working directory clean" ]]; then
+#     state="${PR_RED}⚡"
+#   fi
+#
+#   if [[ ${gitst} =~ ${remote_pattern} ]]; then
+#     if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
+#       remote="${PR_YELLOW}↑"
+#     else
+#       remote="${PR_YELLOW}↓"
+#     fi
+#   fi
+#
+#   if [[ ${gitst} =~ ${diverge_pattern} ]]; then
+#     remote="${PR_YELLOW}↕"
+#   fi
+#
+#   if [[ -n $ref ]]; then
+#     echo "${PR_CYAN}(${ref#refs/heads/}$remote$state${PR_CYAN})${PR_WHITE}"
 #   fi
 # }
 
-# PROMPT='${PR_BOLD_BLUE}%${PR_PWDLEN}<...<%~%<< $(git_prompt_info)${PR_BOLD_BLUE}$%{${reset_color}%} '
-# PROMPT='${SSH_CONNECTION+"%{$fg_bold[cyan]%}%n@%m:"}%{$fg_bold[green]%}%~%{$reset_color%}$(git_prompt_info)${reset_color}:%? '
 
-export PS1='${SSH_CONNECTION+"%{$fg_bold[cyan]%}%n@%m:"}%{$fg_bold[green]%}%~%{$reset_color%}$(git_prompt_info):%? '
-
-# RPROMPT='%F{green}%~%f'
-
-# expand functions in the prompt
-setopt prompt_subst
+export PS1="\u@\h \[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_NC}\]\[${COLOR_PURPLE}\]\$(__git_ps1 \" (%s)\")\\[${COLOR_NC}\] \$ "
+export PS2='> '
+export PS3='#? '
+export PS4='+ '
