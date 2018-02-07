@@ -1,5 +1,6 @@
 [user]
 	name = Tristan Sokol
+	email = git@tristansokol.com
 	# email = 
 [push]
 	config = default
