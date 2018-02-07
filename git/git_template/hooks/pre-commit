@@ -20,8 +20,6 @@ if [[ -z "$commiter_email" ]]; then
   commiter_email=$(git config user.email)
 fi
 
-
-
 # A pre-commit hook which removes trailing whitespace and appends a newline
 # to known text files which are missing one.
 #
