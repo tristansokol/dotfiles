@@ -1,0 +1,15 @@
+# Set Safari as the default handler for HTML files,
+# set TextEdit as the default handler for files with .patch extensions,
+
+# blank lines and lines beginning with a '#' are ignored
+#
+# bundle id		UTI/ext/MIME type	role
+
+#com.apple.Safari	public.html		all
+#com.apple.TextEdit	.patch			editor
+com.github.atom .md editor
+com.github.atom .rb editor
+
+# bundle id		URL scheme
+
+#org.mozilla.Firefox	feed

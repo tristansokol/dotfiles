@@ -24,7 +24,7 @@
 	interactive = auto
 [core]
 	excludesfile = ~/.gitignore
-	editor = subl -n -w
+	editor = atom
 [init]
 	templatedir = ~/.git_template
 [alias]
