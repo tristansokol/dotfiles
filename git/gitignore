@@ -1,9 +1,10 @@
 *.iml
 .bundle
 .DS_Store
+.DS_Store?
 .idea
 .rbx
 node_modules
 tags
 # printf "Icon\r\r" >> .gitignore
-Icon
+Icon
