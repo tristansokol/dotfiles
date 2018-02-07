@@ -35,11 +35,17 @@ if [[ -z "$lastbackup" ]]; then
 fi
 
 # Add bash completion files.
-if [[ -d $HOME/.bash_completion.d ]]; then
+# if [[ -d $HOME/.bash_completion.d ]]; then
+#   for i in $(LC_ALL=C command ls "$HOME/.bash_completion.d"); do
+#     source "$HOME/.bash_completion.d/$i"
+#   done
+# fi
+# unset i
+
+#experiment with forcing it to load, since it should be there. 
   for i in $(LC_ALL=C command ls "$HOME/.bash_completion.d"); do
     source "$HOME/.bash_completion.d/$i"
   done
-fi
 unset i
 
 if [ $BASH_VERSINFO -ge 4 ]; then

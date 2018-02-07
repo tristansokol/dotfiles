@@ -1,0 +1,7 @@
+#!/bin/bash
+
+PROJECT_PRE_PUSH_HOOK=$(git rev-parse --show-toplevel)/.hooks/pre-push
+
+if [ -x "$PROJECT_PRE_PUSH_HOOK" ]; then
+  "$PROJECT_PRE_PUSH_HOOK" $files
+fi

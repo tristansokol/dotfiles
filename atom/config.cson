@@ -9,6 +9,8 @@
     telemetryConsent: "limited"
   editor:
     fontFamily: "FiraCode-Light"
+    invisibles: {}
+    showInvisibles: true
     softWrap: true
   "exception-reporting":
     userId: "826bb6b7-475c-4cfe-8c6c-fedcb1d5e5cb"

@@ -25,7 +25,12 @@ atom-text-editor {
   // color: white;
   // background-color: hsl(180, 24%, 12%);
 }
-
+atom-text-editor::shadow {
+  .leading-whitespace, .invisible-character {
+    color: #00ff8c;
+    opacity: 0.5;
+  }
+}
 // style UI elements inside atom-text-editor
 atom-text-editor .cursor {
   // border-color: red;
