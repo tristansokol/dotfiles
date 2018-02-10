@@ -9,6 +9,7 @@
 #com.apple.TextEdit	.patch			editor
 com.github.atom .md editor
 com.github.atom .rb editor
+com.github.atom .json editor
 
 # bundle id		URL scheme
 
