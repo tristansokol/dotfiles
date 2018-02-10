@@ -34,6 +34,16 @@ if [[ -z "$lastbackup" ]]; then
   echo "You should back up your iphone!"
 fi
 
+# Babushka if you havn't babushka'd in a while.
+lastbabushkad=$(find ~/.babushka/logs/* -mtime -7 -type f -maxdepth 0)
+if [[ -z lastbabushkad ]]; then
+  echo "SORRY< BABUSHKAING"
+  cd ~/.babushka/deps
+  git pull
+  babushka base
+fi
+
+
 # Add bash completion files.
 # if [[ -d $HOME/.bash_completion.d ]]; then
 #   for i in $(LC_ALL=C command ls "$HOME/.bash_completion.d"); do
@@ -42,10 +52,10 @@ fi
 # fi
 # unset i
 
-#experiment with forcing it to load, since it should be there. 
-  for i in $(LC_ALL=C command ls "$HOME/.bash_completion.d"); do
-    source "$HOME/.bash_completion.d/$i"
-  done
+#experiment with forcing it to load, since it should be there.
+for i in $(LC_ALL=C command ls "$HOME/.bash_completion.d"); do
+  source "$HOME/.bash_completion.d/$i"
+done
 unset i
 
 if [ $BASH_VERSINFO -ge 4 ]; then
