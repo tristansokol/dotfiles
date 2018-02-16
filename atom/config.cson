@@ -2,11 +2,18 @@
   "atom-beautify":
     general:
       _analyticsUserId: "21019c2c-45a3-407b-b702-0184cc8fdc1c"
+    js:
+      end_with_comma: true
+      end_with_newline: true
   core:
     packagesWithKeymapsDisabled: [
       "atom-beautify"
     ]
     telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
   editor:
     fontFamily: "FiraCode-Light"
     invisibles: {}
@@ -16,9 +23,15 @@
     userId: "826bb6b7-475c-4cfe-8c6c-fedcb1d5e5cb"
   "git-diff":
     showIconsInEditorGutter: true
+  "linter-eslint":
+    lintHtmlFiles: true
   "linter-jshint":
     lintInlineJavaScript: true
+    scopes: [
+      "source.js-semantic"
+    ]
   "linter-ui-default":
+    panelHeight: 98
     showPanel: true
   minimap:
     plugins:
