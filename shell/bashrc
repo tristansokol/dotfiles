@@ -2,8 +2,7 @@ clear
 # add a welcome message?
 echo -ne "Today is "; date
 echo -e ""; cal ;
-echo -ne "Uptime:";uptime | awk /'up/
-{print $3,$4}'
+uptime
 
 
 
