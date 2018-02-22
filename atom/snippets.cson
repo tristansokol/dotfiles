@@ -19,3 +19,13 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
+'.text.html.basic':
+  'Reveal.js Speaker Note':
+    'prefix':'note'
+    'description':'Add an <aside class="notes"...'
+    'body':"""
+           <aside class="note">
+            $1
+            </aside>'
+            """
