@@ -2,6 +2,13 @@
 if [ -f $HOME/.bashrc ]; then
   source $HOME/.bashrc
 fi
+# Add bash completion files, before aliases
+if [[ -d $HOME/.bash_completion.d ]]; then
+  for i in $(LC_ALL=C command ls "$HOME/.bash_completion.d"); do
+    source "$HOME/.bash_completion.d/$i"
+  done
+fi
+unset i
 
 # source aliases
 # [[ -f "$HOME/dotfiles/shell/aliases" ]] && source "$HOME/dotfiles/shell/aliases"
@@ -30,9 +37,10 @@ fi
 
 lastbackup=$(find ~/Library/Application\ Support/MobileSync/Backup/* -mtime -10 -type d -maxdepth 0)
 
-if [[ -z "$lastbackup" ]]; then
-  echo "You should back up your iphone!"
+if [[ -z $lastbackup ]]; then
+  echo -n "You should back up your iphone!"
 fi
+
 
 # Babushka if you havn't babushka'd in a while.
 lastbabushkad=$(find ~/.babushka/logs/* -mtime -7 -type f -maxdepth 0)
@@ -44,13 +52,7 @@ if [[ -z lastbabushkad ]]; then
 fi
 
 
-# Add bash completion files.
-# if [[ -d $HOME/.bash_completion.d ]]; then
-#   for i in $(LC_ALL=C command ls "$HOME/.bash_completion.d"); do
-#     source "$HOME/.bash_completion.d/$i"
-#   done
-# fi
-# unset i
+
 
 #experiment with forcing it to load, since it should be there.
 for i in $(LC_ALL=C command ls "$HOME/.bash_completion.d"); do
@@ -74,7 +76,6 @@ export GIT_PS1_SHOWUNTRACKEDFILE=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWCOLORHINTS=true
-[[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 
 
 # TODO Add a babushka dep to copy the bash profile and bash rc to a certain spot in my dotfiles repo and then replace them with a different .bashrc and profile that source the bash profile and bashrc in this repo.
