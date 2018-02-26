@@ -25,7 +25,7 @@
     'prefix':'note'
     'description':'Add an <aside class="notes"...'
     'body':"""
-           <aside class="note">
+           <aside class="notes">
             $1
             </aside>'
             """
