@@ -1,7 +1,7 @@
 [user]
 	name = Tristan Sokol
 	email = git@tristansokol.com
-	# email = 
+	# email =
 [push]
 	config = default
 	default = current
@@ -26,7 +26,7 @@
 	excludesfile = ~/.gitignore
 	editor = atom
 [init]
-	templatedir = ~/.git_template
+	templatedir = ~/dotfiles/git/git_template
 [alias]
 	c = commit -m
 	a = add
