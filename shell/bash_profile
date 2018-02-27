@@ -1,3 +1,9 @@
+clear
+# add a welcome message?
+echo -ne "Today is "; date
+echo -e ""; cal ;
+uptime
+
 # source the bashrc file
 if [ -f $HOME/.bashrc ]; then
   source $HOME/.bashrc
@@ -46,12 +52,20 @@ fi
 lastbabushkad=$(find ~/.babushka/logs/* -mtime -7 -type f -maxdepth 0)
 if [[ -z lastbabushkad ]]; then
   echo "SORRY< BABUSHKAING"
-  cd ~/.babushka/deps
-  git pull
-  babushka base
+  # cd ~/.babushka/deps
+  # git pull
+  # babushka base
 fi
 
-
+mod=$(date -r ~/.babushka/logs/tristansokol\:base +%s)
+now=$(date +%s)
+days=$(expr \( $now - $mod \) / 86400)
+if [ "$days" -gt 7 ]; then
+  echo -e "${COLOR_RED} You last babushkad $days days ago ${COLOR_NC}"
+  echo -e "${COLOR_RED} babushka tristansokol:base --update ${COLOR_NC}"
+else
+  echo -e "You last babushkad $days days ago"
+fi
 
 
 #experiment with forcing it to load, since it should be there.

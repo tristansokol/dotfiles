@@ -16,6 +16,7 @@
     ]
   editor:
     fontFamily: "FiraCode-Light"
+    fontSize: 13
     invisibles: {}
     showInvisibles: true
     softWrap: true
@@ -31,7 +32,6 @@
       "source.js-semantic"
     ]
   "linter-ui-default":
-    panelHeight: 98
     showPanel: true
   minimap:
     plugins:
