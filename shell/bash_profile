@@ -20,8 +20,29 @@ unset i
 # [[ -f "$HOME/dotfiles/shell/aliases" ]] && source "$HOME/dotfiles/shell/aliases"
 source "$HOME/dotfiles/shell/aliases"
 
-# update dotfiles
-cd ~/dotfiles && git pull && cd ~/
+function update_dotfiles() {
+  if cd ~/dotfiles && git remote update &> /dev/null && \
+      [[ `git rev-parse master` != `git rev-parse origin/master` ]];
+  then
+    echo 'Your ~/dotfiles are outdated. Do you want to update? (y/n)'
+    while true; do
+      printf "> "
+      read response < /dev/tty
+      if [ $response = 'y' ]; then
+        echo 'Updating...'
+        cd ~/dotfiles && git checkout master && git pull
+        break
+      elif [ $response = 'n' ]; then
+        echo 'but you probably should...'
+        break
+      else
+        echo "please enter either 'y' or 'n'"
+      fi
+    done
+  fi
+  cd ~/ # jump back into topsoil dir
+}
+update_dotfiles
 
 #set the language
 export LC_CTYPE="en_US.UTF-8"
