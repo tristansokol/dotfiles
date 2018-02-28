@@ -27,5 +27,5 @@
     'body':"""
            <aside class="notes">
             $1
-            </aside>'
+            </aside>
             """
