@@ -72,13 +72,13 @@ fi
 
 
 # Babushka if you havn't babushka'd in a while.
-lastbabushkad=$(find ~/.babushka/logs/* -mtime -7 -type f -maxdepth 0)
-if [[ -z lastbabushkad ]]; then
-  echo "SORRY< BABUSHKAING"
-  # cd ~/.babushka/deps
-  # git pull
-  # babushka base
-fi
+# lastbabushkad=$(find ~/.babushka/logs/* -mtime -7 -type f -maxdepth 0)
+# if [[ -z lastbabushkad ]]; then
+#   echo "SORRY< BABUSHKAING"
+#   # cd ~/.babushka/deps
+#   # git pull
+#   # babushka base
+# fi
 
 mod=$(date -r ~/.babushka/logs/tristansokol\:base +%s)
 now=$(date +%s)
