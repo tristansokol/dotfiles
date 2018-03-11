@@ -67,7 +67,7 @@ fi
 lastbackup=$(find ~/Library/Application\ Support/MobileSync/Backup/* -mtime -10 -type d -maxdepth 0)
 
 if [[ -z $lastbackup ]]; then
-  echo -n "You should back up your iphone!"
+  echo -ne "You should back up your iphone!"
 fi
 
 
@@ -87,7 +87,8 @@ if [ "$days" -gt 7 ]; then
   echo -e "${COLOR_RED} You last babushkad $days days ago ${COLOR_NC}"
   echo -e "${COLOR_RED} babushka tristansokol:base --update ${COLOR_NC}"
 else
-  echo -e "You last babushkad $days days ago"
+  # echo -e "You last babushkad $days days ago"
+  echo
 fi
 
 
