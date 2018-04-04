@@ -31,7 +31,8 @@
     scopes: [
       "source.js-semantic"
     ]
-  "linter-ui-default": {}
+  "linter-ui-default":
+    showPanel: true
   minimap:
     plugins:
       cursorline: true
