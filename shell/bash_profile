@@ -1,3 +1,8 @@
+#TODO add a background color to the prompt
+#TODO add a newline for prompt
+#TODO incorporate lolcat?
+#TODO break out into a separate prompt file
+
 clear
 # add a welcome message?
 echo -ne "Today is "; date
