@@ -7,8 +7,9 @@ clear
 # add a welcome message?
 echo -ne "Today is "; date
 echo -e ""; cal ;
-uptime
 
+uptime
+fortune | lolcat
 # source the bashrc file
 if [ -f $HOME/.bashrc ]; then
   source $HOME/.bashrc
