@@ -11,6 +11,7 @@ com.github.atom .md editor
 com.github.atom .rb editor
 com.github.atom .json editor
 com.github.atom .js editor
+com.github.atom .py editor
 com.github.atom .html editor
 # bundle id		URL scheme
 
