@@ -1,0 +1,23 @@
+# https://jakemccrary.com/blog/2015/05/03/put-the-last-commands-run-time-in-your-bash-prompt/
+#
+function timer_start {
+  timer=${timer:-$SECONDS}
+}
+
+function timer_stop {
+  timer_show=$(($SECONDS - $timer))
+  unset timer
+}
+
+trap 'timer_start' DEBUG
+
+# \u@\h adds user@host
+export PS1=" \[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_NC}\]\[${COLOR_PURPLE}\]\$(__git_ps1 \" (%s)\")\\[${COLOR_NC}\] [last: \$timer_show s] \n\$ "
+export PS2='> '
+export PS3='#? '
+export PS4='+ '
+
+
+# add some more history logging: https://spin.atomicobject.com/2016/05/28/log-bash-history/
+# https://apple.stackexchange.com/questions/144896/open-new-terminal-tab-in-current-working-directory-doesnt-work
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-history/bash-history-$(date "+%Y-%m-%d").log; fi; timer_stop;'

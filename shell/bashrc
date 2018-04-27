@@ -8,7 +8,7 @@ export GREP_COLOR='1;32'
 
 export CLICOLOR='1'
 
-alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
+
 export LSCOLORS="gxDxFxdxCxExExhbadgxgx"
 
 # Setup some colors to use later in interactive shell or scripts
@@ -41,9 +41,6 @@ export HISTCONTROL=ignoredups
 # ... and ignore same successive entries.
 export HISTCONTROL=ignoreboth
 
-# add some more history logging: https://spin.atomicobject.com/2016/05/28/log-bash-history/
-# https://apple.stackexchange.com/questions/144896/open-new-terminal-tab-in-current-working-directory-doesnt-work
-export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/dotfiles/bash-history-$(date "+%Y-%m-%d").log; fi; $PROMPT_COMMAND'
 
 
 ##############################
@@ -79,9 +76,3 @@ shopt -s checkwinsize
 #     echo "${PR_CYAN}(${ref#refs/heads/}$remote$state${PR_CYAN})${PR_WHITE}"
 #   fi
 # }
-
-
-export PS1="\u@\h \[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_NC}\]\[${COLOR_PURPLE}\]\$(__git_ps1 \" (%s)\")\\[${COLOR_NC}\] \$ "
-export PS2='> '
-export PS3='#? '
-export PS4='+ '

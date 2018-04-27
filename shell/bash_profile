@@ -1,6 +1,5 @@
 #TODO add a background color to the prompt
 #TODO add a newline for prompt
-#TODO incorporate lolcat?
 #TODO break out into a separate prompt file
 
 clear
@@ -13,6 +12,10 @@ fortune | lolcat
 # source the bashrc file
 if [ -f $HOME/.bashrc ]; then
   source $HOME/.bashrc
+fi
+
+if [ -f $HOME/dotfiles/shell/bash_prompt ]; then
+  source $HOME/dotfiles/shell/bash_prompt
 fi
 # Add bash completion files, before aliases
 if [[ -d $HOME/.bash_completion.d ]]; then
@@ -46,7 +49,7 @@ function update_dotfiles() {
       fi
     done
   fi
-  cd ~/ # jump back into topsoil dir
+  cd ~/
 }
 update_dotfiles
 
@@ -121,5 +124,6 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWCOLORHINTS=true
 
+alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
 
 # TODO Add a babushka dep to copy the bash profile and bash rc to a certain spot in my dotfiles repo and then replace them with a different .bashrc and profile that source the bash profile and bashrc in this repo.
