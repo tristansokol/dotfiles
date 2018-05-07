@@ -6,6 +6,9 @@
       end_with_comma: true
       end_with_newline: true
   core:
+    disabledPackages: [
+      "linter-pylint"
+    ]
     packagesWithKeymapsDisabled: [
       "atom-beautify"
     ]

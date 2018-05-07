@@ -1,5 +1,5 @@
 # https://jakemccrary.com/blog/2015/05/03/put-the-last-commands-run-time-in-your-bash-prompt/
-#
+#https://gist.github.com/insin/1425703
 function timer_start {
   timer=${timer:-$SECONDS}
 }
@@ -10,14 +10,56 @@ function timer_stop {
 }
 
 trap 'timer_start' DEBUG
+# Return the prompt symbol to use, colorized based on the return value of the
+# previous command.
+function set_prompt_symbol () {
+  if test $1 -eq 0 ; then
+      PROMPT_SYMBOL="\$"
+  else
+      PROMPT_SYMBOL="${COLOR_LIGHT_RED}\$${COLOR_NC}"
+  fi
+}
+
+# Determine active Python virtualenv details.
+function set_virtualenv () {
+  if test -z "$VIRTUAL_ENV" ; then
+      PYTHON_VIRTUALENV=""
+  else
+      PYTHON_VIRTUALENV="${COLOR_BLUE}[`basename \"$VIRTUAL_ENV\"`]${COLOR_NC} "
+  fi
+}
+
+
+function set_bash_prompt () {
+  # Set the PROMPT_SYMBOL variable. We do this first so we don't lose the
+  # return value of the last command.
+  set_prompt_symbol $?
+
+  # Set the PYTHON_VIRTUALENV variable.
+  set_virtualenv
+
+if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-history/bash-history-$(date "+%Y-%m-%d").log; fi; timer_stop;
+
+
+#   # Set the bash prompt variable.
+#   PS1="
+# ${PYTHON_VIRTUALENV}${GREEN}\u@\h ${YELLOW}\w${COLOR_NONE} ${BRANCH}
+# "
+
 
 # \u@\h adds user@host
-export PS1=" \[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_NC}\]\[${COLOR_PURPLE}\]\$(__git_ps1 \" (%s)\")\\[${COLOR_NC}\] [last: \$timer_show s] \n\$ "
+export PS1="${PYTHON_VIRTUALENV} \[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_NC}\]\[${COLOR_PURPLE}\]\$(__git_ps1 \" (%s)\")\\[${COLOR_NC}\] [last: \$timer_show s] \n${PROMPT_SYMBOL} "
 export PS2='> '
 export PS3='#? '
 export PS4='+ '
 
+}
+
+
+
+
 
 # add some more history logging: https://spin.atomicobject.com/2016/05/28/log-bash-history/
 # https://apple.stackexchange.com/questions/144896/open-new-terminal-tab-in-current-working-directory-doesnt-work
-export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-history/bash-history-$(date "+%Y-%m-%d").log; fi; timer_stop;'
+# export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-history/bash-history-$(date "+%Y-%m-%d").log; fi; timer_stop;'
+export PROMPT_COMMAND=set_bash_prompt
