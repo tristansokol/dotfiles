@@ -1,5 +1,4 @@
 #TODO add a background color to the prompt
-#TODO add a newline for prompt
 #TODO break out into a separate prompt file
 
 clear
@@ -131,6 +130,4 @@ export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWCOLORHINTS=true
 
 export EDITOR='atom'
-
-
 # TODO Add a babushka dep to copy the bash profile and bash rc to a certain spot in my dotfiles repo and then replace them with a different .bashrc and profile that source the bash profile and bashrc in this repo.
