@@ -24,14 +24,17 @@ if [[ -d $HOME/.bash_completion.d ]]; then
 fi
 unset i
 
-source ~/.gem/ruby/2.3.0/gems/tmuxinator-0.11.1/completion/tmuxinator.bash
+if [ -f $HOME/.gem/ruby/2.3.0/gems/tmuxinator-0.11.1/completion/tmuxinator.bash ]; then
+  source $HOME/.gem/ruby/2.3.0/gems/tmuxinator-0.11.1/completion/tmuxinator.bash
+fi
+
 # source aliases
 # [[ -f "$HOME/dotfiles/shell/aliases" ]] && source "$HOME/dotfiles/shell/aliases"
 source "$HOME/dotfiles/shell/aliases"
 
 function update_dotfiles() {
   if cd ~/dotfiles && git remote update &> /dev/null && \
-      [[ `git rev-parse master` != `git rev-parse origin/master` ]];
+  [[ `git rev-parse master` != `git rev-parse origin/master` ]];
   then
     echo 'Your ~/dotfiles are outdated. Do you want to update? (y/n)'
     while true; do
@@ -93,18 +96,19 @@ fi
 #   # git pull
 #   # babushka base
 # fi
+if [[ -d "$HOME/.babushka/logs/tristansokol:base" ]]; then
 
-mod=$(date -r ~/.babushka/logs/tristansokol\:base +%s)
-now=$(date +%s)
-days=$(expr \( $now - $mod \) / 86400)
-if [ "$days" -gt 7 ]; then
-  echo -e "${COLOR_RED} You last babushkad $days days ago ${COLOR_NC}"
-  echo -e "${COLOR_RED} babushka tristansokol:base --update ${COLOR_NC}"
-else
-  # echo -e "You last babushkad $days days ago"
-  echo
+  mod=$(date -r ~/.babushka/logs/tristansokol\:base +%s)
+  now=$(date +%s)
+  days=$(expr \( $now - $mod \) / 86400)
+  if [ "$days" -gt 7 ]; then
+    echo -e "${COLOR_RED} You last babushkad $days days ago ${COLOR_NC}"
+    echo -e "${COLOR_RED} babushka tristansokol:base --update ${COLOR_NC}"
+  else
+    # echo -e "You last babushkad $days days ago"
+    echo
+  fi
 fi
-
 
 #experiment with forcing it to load, since it should be there.
 for i in $(LC_ALL=C command ls "$HOME/.bash_completion.d"); do
