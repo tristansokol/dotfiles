@@ -89,6 +89,8 @@ function as-gb() {
   echo $(echo "scale=2;$num/1048576" | bc)Gi
 }
 
+alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
+
 # run this function to reclaim disk space
 function clean-logs() {
   before=$(get-free-disk-space)

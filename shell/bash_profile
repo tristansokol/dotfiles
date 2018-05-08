@@ -25,6 +25,7 @@ if [[ -d $HOME/.bash_completion.d ]]; then
 fi
 unset i
 
+source ~/.bin/tmuxinator.bash
 # source aliases
 # [[ -f "$HOME/dotfiles/shell/aliases" ]] && source "$HOME/dotfiles/shell/aliases"
 source "$HOME/dotfiles/shell/aliases"
@@ -124,6 +125,7 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWCOLORHINTS=true
 
-alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
+export EDITOR='atom'
+
 
 # TODO Add a babushka dep to copy the bash profile and bash rc to a certain spot in my dotfiles repo and then replace them with a different .bashrc and profile that source the bash profile and bashrc in this repo.
