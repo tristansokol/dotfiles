@@ -32,6 +32,7 @@ fi
 # [[ -f "$HOME/dotfiles/shell/aliases" ]] && source "$HOME/dotfiles/shell/aliases"
 source "$HOME/dotfiles/shell/aliases"
 
+pwd
 function update_dotfiles() {
   if cd ~/dotfiles && git remote update &> /dev/null && \
   [[ `git rev-parse master` != `git rev-parse origin/master` ]];
@@ -42,7 +43,7 @@ function update_dotfiles() {
       read response < /dev/tty
       if [ $response = 'y' ]; then
         echo 'Updating...'
-        cd ~/dotfiles && git checkout master && git pull
+        cd ~/dotfiles && git checkout master && git pull && git push
         break
       elif [ $response = 'n' ]; then
         echo 'but you probably should...'
