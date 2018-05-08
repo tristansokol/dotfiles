@@ -38,6 +38,10 @@ function set_bash_prompt () {
   # Set the PYTHON_VIRTUALENV variable.
   set_virtualenv
 
+  # if [ ! -e '~/.bash-history' ]; then
+  #   mkdir ~/.bash-history
+  # fi
+
 if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-history/bash-history-$(date "+%Y-%m-%d").log; fi; timer_stop;
 
 
