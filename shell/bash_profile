@@ -25,7 +25,7 @@ if [[ -d $HOME/.bash_completion.d ]]; then
 fi
 unset i
 
-source ~/.bin/tmuxinator.bash
+source ~/.gem/ruby/2.3.0/gems/tmuxinator-0.11.1/completion/tmuxinator.bash
 # source aliases
 # [[ -f "$HOME/dotfiles/shell/aliases" ]] && source "$HOME/dotfiles/shell/aliases"
 source "$HOME/dotfiles/shell/aliases"
@@ -68,6 +68,11 @@ fi
 if [[ -d "/usr/local/sbin" ]]; then
   export PATH="$PATH:/usr/local/sbin"
 fi
+
+if [[ -d "~/.gem/ruby/2.3.0/bin" ]]; then
+  export PATH="$PATH:~/.gem/ruby/2.3.0/bin"
+fi
+
 
 
 # determine if my phone has been backed up recently
