@@ -27,15 +27,17 @@
     userId: "826bb6b7-475c-4cfe-8c6c-fedcb1d5e5cb"
   "git-diff":
     showIconsInEditorGutter: true
+  "highlight-line":
+    enableBackgroundColor: false
   "linter-eslint":
+    disableWhenNoEslintConfig: false
     lintHtmlFiles: true
   "linter-jshint":
     lintInlineJavaScript: true
     scopes: [
       "source.js-semantic"
     ]
-  "linter-ui-default":
-    showPanel: true
+  "linter-ui-default": {}
   minimap:
     plugins:
       cursorline: true
