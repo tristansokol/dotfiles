@@ -33,9 +33,11 @@ fi
 source "$HOME/dotfiles/shell/aliases"
 
 pwd
+
 function update_dotfiles() {
-  if cd ~/dotfiles && git remote update &> /dev/null && \
-  [[ `git rev-parse master` != `git rev-parse origin/master` ]];
+  git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles remote update &> /dev/null
+
+  if [[ `git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles rev-parse master` != `git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles rev-parse origin/master` ]];
   then
     echo 'Your ~/dotfiles are outdated. Do you want to update? (y/n)'
     while true; do
@@ -43,7 +45,7 @@ function update_dotfiles() {
       read response < /dev/tty
       if [ $response = 'y' ]; then
         echo 'Updating...'
-        cd ~/dotfiles && git checkout master && git pull && git push
+        git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles checkout master && git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles pull && git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles push
         break
       elif [ $response = 'n' ]; then
         echo 'but you probably should...'
@@ -53,7 +55,6 @@ function update_dotfiles() {
       fi
     done
   fi
-  cd ~/
 }
 update_dotfiles
 
