@@ -32,8 +32,6 @@ fi
 # [[ -f "$HOME/dotfiles/shell/aliases" ]] && source "$HOME/dotfiles/shell/aliases"
 source "$HOME/dotfiles/shell/aliases"
 
-pwd
-
 function update_dotfiles() {
   git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles remote update &> /dev/null
 
