@@ -4,5 +4,6 @@
     "files.exclude": {
         "**/.git": false
 },
-"workbench.startupEditor": "newUntitledFile"
+"workbench.startupEditor": "newUntitledFile",
+"editor.wordWrap": "on"
 }

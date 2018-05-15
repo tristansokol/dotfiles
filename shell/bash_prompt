@@ -16,7 +16,7 @@ function set_prompt_symbol () {
   if test $1 -eq 0 ; then
       PROMPT_SYMBOL="\$"
   else
-      PROMPT_SYMBOL="${COLOR_LIGHT_RED}\$${COLOR_NC}"
+      PROMPT_SYMBOL="\[${COLOR_LIGHT_RED}\]\$\[${COLOR_NC}\]"
   fi
 }
 
@@ -42,28 +42,18 @@ function set_bash_prompt () {
   #   mkdir ~/.bash-history
   # fi
 
-if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-history/bash-history-$(date "+%Y-%m-%d").log; fi; timer_stop;
+  if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-history/bash-history-$(date "+%Y-%m-%d").log; fi; timer_stop;
 
 
-#   # Set the bash prompt variable.
-#   PS1="
-# ${PYTHON_VIRTUALENV}${GREEN}\u@\h ${YELLOW}\w${COLOR_NONE} ${BRANCH}
-# "
 
-
-# \u@\h adds user@host
-export PS1="${PYTHON_VIRTUALENV} \[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_NC}\]\[${COLOR_PURPLE}\]\$(__git_ps1 \" (%s)\")\\[${COLOR_NC}\] [last: \$timer_show s] \n${PROMPT_SYMBOL} "
-export PS2='> '
-export PS3='#? '
-export PS4='+ '
+  # \u@\h adds user@host
+  export PS1="${PYTHON_VIRTUALENV} \[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_PURPLE}\]\$(__git_ps1 \" (%s)\")\\[${COLOR_NC}\] [last: \$timer_show s] \n${PROMPT_SYMBOL} "
+  export PS2='> '
+  export PS3='#? '
+  export PS4='+ '
 
 }
-
-
-
-
-
-# add some more history logging: https://spin.atomicobject.com/2016/05/28/log-bash-history/
+#   export PS1="${PYTHON_VIRTUALENV} \[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_NC}\]\[${COLOR_PURPLE}\]\$(__git_ps1 \" (%s)\")\\[${COLOR_NC}\] [last: \$timer_show s] \n${PROMPT_SYMBOL} "
 # https://apple.stackexchange.com/questions/144896/open-new-terminal-tab-in-current-working-directory-doesnt-work
 # export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash-history/bash-history-$(date "+%Y-%m-%d").log; fi; timer_stop;'
 export PROMPT_COMMAND=set_bash_prompt

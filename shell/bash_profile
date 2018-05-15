@@ -37,7 +37,7 @@ function update_dotfiles() {
 
   if [[ `git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles rev-parse master` != `git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles rev-parse origin/master` ]];
   then
-    echo 'Your ~/dotfiles are outdated. Do you want to update? (y/n)'
+    echo 'Your ~/dotfiles are out of sync. Do you want to update? (y/n)'
     while true; do
       printf "> "
       read response < /dev/tty
