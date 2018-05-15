@@ -1,0 +1,8 @@
+{
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "files.exclude": {
+        "**/.git": false
+},
+"workbench.startupEditor": "newUntitledFile"
+}
