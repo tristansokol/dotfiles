@@ -5,5 +5,9 @@
         "**/.git": false
 },
 "workbench.startupEditor": "newUntitledFile",
-"editor.wordWrap": "on"
+"editor.wordWrap": "on",
+"ruby.format":"rubocop",
+"npm.enableScriptExplorer": true,
+"explorer.confirmDelete": false,
+"editor.renderWhitespace": "all",
 }
