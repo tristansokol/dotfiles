@@ -10,4 +10,5 @@
 "npm.enableScriptExplorer": true,
 "explorer.confirmDelete": false,
 "editor.renderWhitespace": "all",
+"explorer.confirmDragAndDrop": false,
 }
