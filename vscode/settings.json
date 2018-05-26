@@ -6,6 +6,8 @@
 },
 "workbench.startupEditor": "newUntitledFile",
 "editor.wordWrap": "on",
+"editor.fontFamily": "Fira Code",
+"editor.fontLigatures": true,
 "ruby.format":"rubocop",
 "npm.enableScriptExplorer": true,
 "explorer.confirmDelete": false,
