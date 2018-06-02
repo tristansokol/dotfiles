@@ -13,4 +13,5 @@
 "explorer.confirmDelete": false,
 "editor.renderWhitespace": "all",
 "explorer.confirmDragAndDrop": false,
+"window.title": "${activeEditorLong}${separator}${rootName}"
 }
