@@ -24,8 +24,8 @@ if [[ -d $HOME/.bash_completion.d ]]; then
 fi
 unset i
 
-if [ -f $HOME/.gem/ruby/2.3.0/gems/tmuxinator-0.11.1/completion/tmuxinator.bash ]; then
-  source $HOME/.gem/ruby/2.3.0/gems/tmuxinator-0.11.1/completion/tmuxinator.bash
+if [ -f $HOME/dotfiles/tmuxinator/tmuxinator.bash ]; then
+  source $HOME/dotfiles/tmuxinator/tmuxinator.bash
 fi
 
 # source aliases
@@ -75,6 +75,13 @@ fi
   export PATH="$PATH:~/.gem/ruby/2.3.0/bin"
 # fi
 
+# if [[ -d "/usr/local/lib/ruby/gems/2.6.0/bin" ]]; then
+  export PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin"
+# fi
+
+
+# Add brew (for python)
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 
 # determine if my phone has been backed up recently
@@ -133,6 +140,7 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUPSTREAM=auto
 export GIT_PS1_SHOWCOLORHINTS=true
 
-export EDITOR='atom'
+export TMUXINATOR_CONFIG=$HOME/dotfiles/tmuxinator
+export EDITOR='code --wait'
 # export TMUXINATOR_CONFIG='~/dotfiles/tmuxinator'
 # TODO Add a babushka dep to copy the bash profile and bash rc to a certain spot in my dotfiles repo and then replace them with a different .bashrc and profile that source the bash profile and bashrc in this repo.

@@ -24,7 +24,7 @@
 	interactive = auto
 [core]
 	excludesfile = ~/.gitignore
-	editor = atom
+	editor = code --wait
 [init]
 	templatedir = ~/dotfiles/git/git_template
 [alias]
@@ -72,3 +72,5 @@
 	rebase = true
 [include]
 	path = ~/.gitconfig_local
+[credential "https://source.developers.google.com"]
+	helper = gcloud.sh

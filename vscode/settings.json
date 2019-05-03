@@ -3,15 +3,49 @@
     "git.confirmSync": false,
     "files.exclude": {
         "**/.git": false
-},
-"workbench.startupEditor": "newUntitledFile",
-"editor.wordWrap": "on",
-"editor.fontFamily": "Fira Code",
-"editor.fontLigatures": true,
-"ruby.format":"rubocop",
-"npm.enableScriptExplorer": true,
-"explorer.confirmDelete": false,
-"editor.renderWhitespace": "all",
-"explorer.confirmDragAndDrop": false,
-"window.title": "${activeEditorLong}${separator}${rootName}"
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.wordWrap": "on",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "ruby.format": "rubocop",
+    "npm.enableScriptExplorer": true,
+    "explorer.confirmDelete": false,
+    "editor.rulers": [
+        80
+    ],
+    "editor.renderWhitespace": "all",
+    "explorer.confirmDragAndDrop": false,
+    "window.title": "${activeEditorLong}${separator}${rootName}",
+    "python.linting.pylintPath": "/usr/local/bin/pylint",
+    "python.pythonPath": "/usr/local/bin/python3",
+    "eslint.autoFixOnSave": true,
+    "csv-preview.lineNumbers": true,
+    "editor.fontSize": 14,
+    "editor.tabSize": 2,
+    "todo-tree.defaultHighlight": {
+        "icon": "alert",
+        "type": "text",
+        "foreground": "red",
+        "background": "white",
+        // "opacity": 50,
+        "iconColour": "white"
+    },
+    "todo-tree.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "type": "line"
+        },
+        "FIXME": {
+            "foreground": "black",
+            "iconColour": "yellow"
+        }
+    },
+    "window.zoomLevel": 0,
+    "docthis.includeDescriptionTag": true,
+    "docthis.inferTypesFromNames": true,
+    "docthis.includeAuthorTag": true,
+    "docthis.authorName": "Tristan Sokol",
+    "workbench.colorTheme": "Winter is Coming (Light)",
+    "liveshare.featureSet": "insiders"
 }

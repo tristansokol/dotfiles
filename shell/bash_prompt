@@ -1,5 +1,9 @@
 # https://jakemccrary.com/blog/2015/05/03/put-the-last-commands-run-time-in-your-bash-prompt/
 #https://gist.github.com/insin/1425703
+
+
+#All of a sudden Jan 15 2019 the timer broke :(
+#it was because of the iterm shell integration.
 function timer_start {
   timer=${timer:-$SECONDS}
 }
@@ -10,6 +14,7 @@ function timer_stop {
 }
 
 trap 'timer_start' DEBUG
+
 # Return the prompt symbol to use, colorized based on the return value of the
 # previous command.
 function set_prompt_symbol () {
@@ -31,6 +36,10 @@ function set_virtualenv () {
 
 
 function set_bash_prompt () {
+  #the following line sets the terminal titles to the relative path
+  echo -en "\033]0;$(pwd|cut -d "/" -f 4-100)\a"
+
+  
   # Set the PROMPT_SYMBOL variable. We do this first so we don't lose the
   # return value of the last command.
   set_prompt_symbol $?
@@ -46,6 +55,9 @@ function set_bash_prompt () {
 
   # \u@\h adds user@host
   export PS1="${PYTHON_VIRTUALENV} \[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_PURPLE}\]\$(__git_ps1 \" (%s)\")\\[${COLOR_NC}\] [last: \$timer_show s] \n${PROMPT_SYMBOL} "
+  
+  #no timer version
+  #export PS1="${PYTHON_VIRTUALENV} \[${COLOR_LIGHT_GRAY}\]\w\[${COLOR_PURPLE}\]\$(__git_ps1 \" (%s)\")\\[${COLOR_NC}\] \n${PROMPT_SYMBOL} "
   export PS2='> '
   export PS3='#? '
   export PS4='+ '
