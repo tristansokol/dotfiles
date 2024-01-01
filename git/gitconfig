@@ -5,6 +5,7 @@
 [push]
 	config = default
 	default = current
+	autoSetupRemote = true
 [diff]
 	renames = true
 	indentHeuristic = on
@@ -72,6 +73,7 @@
 	enabled = 1
 [pull]
 	rebase = true
+	ff = only
 [include]
 	path = ~/.gitconfig_local
 [credential "https://source.developers.google.com"]
