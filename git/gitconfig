@@ -8,6 +8,8 @@
 [diff]
 	renames = true
 	indentHeuristic = on
+	colormoved = "default"
+	colormovedws = "allow-indentation-change"
 [status]
 	showUntrackedFiles = all
 [branch]
