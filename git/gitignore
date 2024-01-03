@@ -6,5 +6,5 @@
 .rbx
 node_modules
 tags
-# printf "Icon\r\r" >> .gitignore
-Icon
+Icon
+
