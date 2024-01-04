@@ -74,6 +74,7 @@
 [pull]
 	rebase = true
 	ff = only
+	default = current
 [include]
 	path = ~/.gitconfig_local
 [credential "https://source.developers.google.com"]
