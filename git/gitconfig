@@ -11,13 +11,14 @@
 	indentHeuristic = on
 	colormoved = "default"
 	colormovedws = "allow-indentation-change"
+	algorithm = histogram
 [status]
 	showUntrackedFiles = all
 [branch]
 	autosetupmerge = true
 [merge]
 	summary = true
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 [rebase]
 	autosquash = true
 [color]
@@ -28,6 +29,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = code --wait
+	pager = delta
 [init]
 	templatedir = ~/dotfiles/git/git_template
 [alias]
@@ -79,3 +81,7 @@
 	path = ~/.gitconfig_local
 [credential "https://source.developers.google.com"]
 	helper = gcloud.sh
+[help]
+	autocorrect = 10
+[fetch]
+	prune = true
