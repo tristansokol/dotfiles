@@ -59,12 +59,6 @@ alias gum="echo 'Resetting master to the latest origin/master...' && git fetch &
 alias grum="gum && git rebase master"
 alias ungreen="git log --abbrev-commit --reverse --pretty=format:'%C(yellow)%h%Creset %C(bold)%s%Creset %an' origin/ci-master-distributed-latest..origin/master"
 
-if type complete >/dev/null 2>&1; then
-  __git_complete gco _git_checkout
-  __git_complete gl _git_log
-  __git_complete gb _git_branch
-fi
-
 # OS-X Specific
 alias lockscreen='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 
